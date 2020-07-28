@@ -2,7 +2,7 @@
 
 @Library('jenkinslib') _ // 调用共享库
 
-def tools = new org.devops.tools  // 定义方法
+def tools = new org.devops.tools()  // 定义方法
 
 String workspace = "/var/lib/jenkins/workspace"
 
