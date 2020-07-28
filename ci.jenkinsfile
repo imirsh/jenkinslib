@@ -14,12 +14,14 @@ pipeline {
 				}
 			}
 		}
+	}
+	stages {
 		stage('Build') {
 			steps{
 				script {
-					//mvnHome = tool "ANT" // jenkins 全局工具中配置的变量
+					//antHome = tool "ANT" // jenkins 全局工具中配置的变量
 					antHome = "/usr/local/ant"
-					sh "${mvnHome}/bin/ant ${buildShell}"
+					sh "${antHome}/bin/mvn ${buildShell}"
 				}
 			}
 		}
