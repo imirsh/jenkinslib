@@ -7,8 +7,8 @@ pipeline {
 		stage('Build') {
 			steps{
 				script {
-					mvnHome = tool "M3" // jenkins 全局工具中配置的变量
-
+					//mvnHome = tool "M3" // jenkins 全局工具中配置的变量
+					mvnHome = "/usr/local/maven3"
 					sh "${mvnHome}/bin/mvn -v"
 				}
 			}
