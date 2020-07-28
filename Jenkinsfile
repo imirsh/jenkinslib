@@ -1,3 +1,8 @@
+
+@Library('jenkinslib') _  // 调用共享库
+
+def tools = new org.devops.tools  // 定义方法
+
 String workspace = "/var/lib/jenkins/workspace"
 
 pipeline {
@@ -20,6 +25,7 @@ pipeline {
 				timeout(time:5, unit:"MINUTES"){
 					script{ //填写运行代码
 						println('获取代码')
+						tools.PrintMes("获取代码","green") // 调用方法
 					}
 				}
 			}
