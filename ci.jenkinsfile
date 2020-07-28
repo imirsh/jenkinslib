@@ -41,7 +41,9 @@ pipeline {
 				script {
 					//npmHome = tool "NPM" // jenkins 全局工具中配置的变量
 					npmHome = "/usr/local/node-v10.15.3-linux-x64"
-					sh "${npmHome}/bin/npm ${buildShell}"	
+					sh """
+					   export NODE_HOME=${npmHome} && export PATH=\$NODE_HOME/bin:\$PATH
+ 					   ${npmHome}/bin/npm ${buildShell}"	
 				}
 			}
 		}
