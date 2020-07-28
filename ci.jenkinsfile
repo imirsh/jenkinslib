@@ -1,0 +1,18 @@
+#!groovy
+
+pipeline {
+	agent { node { label "master" } }
+
+	stages {
+		stage('Build') {
+			steps{
+				script {
+					mvnHome = tool "M3" // jenkins 全局工具中配置的变量
+
+					sh "${mvnHome}/bin/mvn -v"
+				}
+			}
+		}
+	}
+  
+}
