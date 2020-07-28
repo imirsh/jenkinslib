@@ -9,7 +9,7 @@ pipeline {
 			steps {
 				script {
 					//mvnHome = tool "M3" // jenkins 全局工具中配置的变量
-					mvnHome = "/usr/local/maven3"
+					mvnHome = "/usr/local/apache-maven-3.6.3"
 					sh "${mvnHome}/bin/mvn ${buildShell}"
 				}
 			}
@@ -18,8 +18,17 @@ pipeline {
 			steps {
 				script {
 					//antHome = tool "ANT" // jenkins 全局工具中配置的变量
-					antHome = "/usr/local/ant"
+					antHome = "/usr/local/apache-ant-1.10.8"
 					sh "${antHome}/bin/ant ${buildShell}"	
+				}
+			}
+		}
+		stage('gradletBuild') {
+			steps {
+				script {
+					//antHome = tool "ANT" // jenkins 全局工具中配置的变量
+					antHome = "/usr/local/gradle-5.3"
+					sh "${antHome}/bin/gradle ${buildShell}"	
 				}
 			}
 		}
