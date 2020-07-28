@@ -1,5 +1,6 @@
 #!groovy
 
+String buildShell = "${env.buildShell}"
 pipeline {
 	agent { node { label "master" } }
 
@@ -9,7 +10,7 @@ pipeline {
 				script {
 					//mvnHome = tool "M3" // jenkins 全局工具中配置的变量
 					mvnHome = "/usr/local/maven3"
-					sh "${mvnHome}/bin/mvn -v"
+					sh "${mvnHome}/bin/mvn ${buildShell}"
 				}
 			}
 		}
