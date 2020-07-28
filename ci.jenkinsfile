@@ -30,9 +30,18 @@ pipeline {
 		stage('gradletBuild') {
 			steps {
 				script {
-					//antHome = tool "GRADLE" // jenkins 全局工具中配置的变量
-					antHome = "/usr/local/gradle-5.3"
-					sh "${antHome}/bin/gradle ${buildShell}"	
+					//gradleHome = tool "GRADLE" // jenkins 全局工具中配置的变量
+					gradleHome = "/usr/local/gradle-5.3"
+					sh "${gradleHome}/bin/gradle ${buildShell}"	
+				}
+			}
+		}
+		stage('npmBuild') {
+			steps {
+				script {
+					//npmHome = tool "NPM" // jenkins 全局工具中配置的变量
+					npmHome = "/usr/local/node-v10.15.3-linux-x64"
+					sh "${npmHome}/bin/npm ${buildShell}"	
 				}
 			}
 		}
