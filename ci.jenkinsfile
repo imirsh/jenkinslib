@@ -26,7 +26,7 @@ pipeline {
 		stage('gradletBuild') {
 			steps {
 				script {
-					//antHome = tool "ANT" // jenkins 全局工具中配置的变量
+					//antHome = tool "GRADLE" // jenkins 全局工具中配置的变量
 					antHome = "/usr/local/gradle-5.3"
 					sh "${antHome}/bin/gradle ${buildShell}"	
 				}
