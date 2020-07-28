@@ -5,8 +5,8 @@ pipeline {
 	agent { node { label "master" } }
 
 	stages {
-		stage('Build') {
-			steps{
+		stage('mvnBuild') {
+			steps {
 				script {
 					//mvnHome = tool "M3" // jenkins 全局工具中配置的变量
 					mvnHome = "/usr/local/maven3"
@@ -14,17 +14,14 @@ pipeline {
 				}
 			}
 		}
-	}
-	stages {
-		stage('Build') {
-			steps{
+		stage('antBuild') {
+			steps {
 				script {
 					//antHome = tool "ANT" // jenkins 全局工具中配置的变量
 					antHome = "/usr/local/ant"
-					sh "${antHome}/bin/mvn ${buildShell}"
+					sh "${antHome}/bin/ant ${buildShell}"	
 				}
 			}
 		}
 	}
-  
 }
