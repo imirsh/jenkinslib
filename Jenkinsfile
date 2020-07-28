@@ -1,5 +1,6 @@
+#!groovy
 
-@Library('jenkinslib') _  // 调用共享库
+@Library('jenkinslib') _ // 调用共享库
 
 def tools = new org.devops.tools  // 定义方法
 
