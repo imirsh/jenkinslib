@@ -17,9 +17,13 @@ pipeline {
 		stage('antBuild') {
 			steps {
 				script {
-					//antHome = tool "ANT" // jenkins 全局工具中配置的变量
-					antHome = "/usr/local/apache-ant-1.10.8"
-					sh "${antHome}/bin/ant ${buildShell}"	
+					try {
+						//antHome = tool "ANT" // jenkins 全局工具中配置的变量
+						antHome = "/usr/local/apache-ant-1.10.8"
+						sh "${antHome}/bin/ant ${buildShell}"
+					} catch(e) {
+						print(e)
+					}
 				}
 			}
 		}
